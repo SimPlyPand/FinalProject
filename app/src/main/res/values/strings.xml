@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Final</string>
     <string name="top_headlines">Top Headlines</string>
+    <string	name="content_title">MyFinal Project Apllication</string>
+    <string	name="content_text">You have been registered successfully to our apps</string>
+    <string	name="subtext">Welcome and enjoy our application</string>
 </resources>

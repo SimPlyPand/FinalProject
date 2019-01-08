@@ -1,6 +1,9 @@
 package com.example.bobby.afinal;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
+    public static final int NOTIFICATION_ID = 1;
     DatabaseHelper db;
     EditText edtRegUser,edtRegPass,edtRegPassConf;
     Button btRegister;
@@ -39,6 +43,18 @@ public class SignUpActivity extends AppCompatActivity {
                               Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                               Intent a = new Intent(SignUpActivity.this,Login.class);
                               startActivity(a);
+                              NotificationCompat.Builder notifBuilder = new
+                                      NotificationCompat.Builder(SignUpActivity.this)
+                                      .setSmallIcon(R.drawable.ic_mode_comment_black_24dp)
+                                      .setLargeIcon(BitmapFactory.decodeResource(getResources()
+                                              , R.drawable.ic_mode_comment_black_24dp))
+                                      .setContentTitle(getResources().getString(R.string.content_title))
+                                      .setContentText(getResources().getString(R.string.content_text))
+                                      .setSubText(getResources().getString(R.string.subtext))
+                                      .setAutoCancel(true);
+                              NotificationManagerCompat ncm = NotificationManagerCompat.from(getApplicationContext());
+                              ncm.notify(NOTIFICATION_ID, notifBuilder.build());
+
                               finish();
                           }
                       }
