@@ -26,10 +26,14 @@ public class Login extends AppCompatActivity {
                 String username = etLogUser.getText().toString();
                 String password = etLogPass.getText().toString();
                 Boolean Chkemailpass = db.usernamepassword(username,password);
-                if(Chkemailpass==true)
-                    Toast.makeText(getApplicationContext(),"Succesfull Login",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(),"Failed Login Attempt",Toast.LENGTH_SHORT).show();
+                if(Chkemailpass==true) {
+                    Toast.makeText(getApplicationContext(), "Succesfull Login", Toast.LENGTH_SHORT).show();
+                    Intent b = new Intent(Login.this, MainActivity.class);
+                    startActivity(b);
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Failed Login Attempt", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
