@@ -41,12 +41,21 @@
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btnSignIn"
-
         android:layout_marginTop="10dp"
         android:layout_below="@id/btnLogIn"
         android:layout_centerHorizontal="true"
         android:text="Sign In"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/fragment_setting_change"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnSignIn"
+        android:textAllCaps="false"
+        android:text="@string/change_language"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
 
 </RelativeLayout>

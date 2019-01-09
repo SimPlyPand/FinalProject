@@ -1,6 +1,7 @@
 package com.example.bobby.afinal;
 
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,14 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
+        Button btnChange = findViewById(R.id.fragment_setting_change);
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(i);
+            }
+        });
         Button btnSignUp = findViewById(R.id.btnSignIn);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,5 +53,6 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 }
