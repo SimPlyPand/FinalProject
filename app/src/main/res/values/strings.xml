@@ -4,5 +4,16 @@
     <string name="content_title">MyFinal Project Apllication</string>
     <string name="content_text">You have been registered successfully to our apps</string>
     <string name="subtext">Welcome and enjoy our application</string>
-    <string name="change_language">CHANGE LANGUAGE</string>
+
+    <string	name="username">Username</string>
+    <string	name="pass">Password</string>
+    <string	name="cpass">Confirm Password</string>
+    <string	name="login">LOGIN</string>
+    <string	name="sign_in">SIGN IN</string>
+    <string name="btnLang">SET LANGUAGE</string>
+
+    <string	name="sign_up">Sign Up</string>
+    <string	name="reg">REGISTER</string>
+    <string	name="mail">E-mail</string>
+
 </resources>

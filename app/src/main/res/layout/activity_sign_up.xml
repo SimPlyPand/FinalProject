@@ -11,14 +11,14 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:layout_width="300dp"
         android:layout_height="100dp" />
     <EditText
         android:id="@+id/edtSignUpUser"
         android:layout_marginTop="10dp"
         android:inputType="textPersonName"
-        android:hint="E-mail"
+        android:hint="@string/mail"
         android:layout_below="@id/tvSignUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:id="@+id/edtSignUpPass"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="@string/pass"
         android:layout_below="@id/edtSignUpUser"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:id="@+id/edtSignUpPassConf"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:hint="Confirm Password"
+        android:hint="@string/cpass"
         android:layout_below="@id/edtSignUpPass"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -51,6 +51,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="register"/>
+        android:text="@string/reg"/>
 
 </RelativeLayout>

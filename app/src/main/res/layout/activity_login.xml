@@ -16,7 +16,7 @@
     <EditText
         android:id="@+id/edtLogUs"
         android:layout_below="@id/imgViewLogo"
-        android:hint="Username"
+        android:hint="@string/username"
         android:layout_width="300dp"
         android:inputType="textPersonName"
         android:layout_marginTop="30dp"
@@ -25,7 +25,7 @@
     <EditText
         android:id="@+id/edtLogPass"
         android:layout_below="@id/edtLogUs"
-        android:hint="Password"
+        android:hint="@string/pass"
         android:layout_width="300dp"
         android:inputType="textPassword"
         android:layout_marginTop="10dp"
@@ -36,7 +36,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/edtLogPass"
         android:layout_centerHorizontal="true"
-        android:text="Log In"
+        android:text="@string/login"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
     <Button
@@ -44,7 +44,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/btnLogIn"
         android:layout_centerHorizontal="true"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
     <Button
@@ -53,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnSignIn"
         android:textAllCaps="false"
-        android:text="@string/change_language"
+        android:text="@string/btnLang"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
 

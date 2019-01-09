@@ -44,22 +44,22 @@ public class SignUpActivity extends AppCompatActivity {
                       Boolean chkmail = db.chkemail(s1);
                       if(chkmail==true){
                           Boolean insert = db.insert(s1,s2);
-                          if(insert==true){
+                          if(insert==true) {
                               Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
-                              Intent a = new Intent(SignUpActivity.this,Login.class);
+                              Intent a = new Intent(SignUpActivity.this, Login.class);
                               startActivity(a);
-                              if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                                   showNotifOreo();
                               else showNotifDefault();
                           }
                               finish();
                           }
+                      } else{
+                            Toast.makeText(getApplicationContext(),"Password Do Not Match", Toast.LENGTH_SHORT).show();
                       }
-                      else{
-                          Toast.makeText(getApplicationContext(),"Email Already Exist", Toast.LENGTH_SHORT).show();
-                      }
-                      }
-                    Toast.makeText(getApplicationContext(),"Password Do Not Match", Toast.LENGTH_SHORT).show();
+                  Toast.makeText(getApplicationContext(),"Email Already Exist", Toast.LENGTH_SHORT).show();
+              }
+
               }
 
         });
