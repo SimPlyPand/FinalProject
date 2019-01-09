@@ -1,7 +1,10 @@
 package com.example.bobby.afinal;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import static com.example.bobby.afinal.NotificationUtils.ANDROID_CHANNEL_ID;
 
 public class SignUpActivity extends AppCompatActivity {
     public static final int NOTIFICATION_ID = 1;
@@ -43,18 +48,10 @@ public class SignUpActivity extends AppCompatActivity {
                               Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                               Intent a = new Intent(SignUpActivity.this,Login.class);
                               startActivity(a);
-                              NotificationCompat.Builder notifBuilder = new
-                                      NotificationCompat.Builder(SignUpActivity.this)
-                                      .setSmallIcon(R.drawable.ic_mode_comment_black_24dp)
-                                      .setLargeIcon(BitmapFactory.decodeResource(getResources()
-                                              , R.drawable.ic_mode_comment_black_24dp))
-                                      .setContentTitle(getResources().getString(R.string.content_title))
-                                      .setContentText(getResources().getString(R.string.content_text))
-                                      .setSubText(getResources().getString(R.string.subtext))
-                                      .setAutoCancel(true);
-                              NotificationManagerCompat ncm = NotificationManagerCompat.from(getApplicationContext());
-                              ncm.notify(NOTIFICATION_ID, notifBuilder.build());
-
+                              if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                                  showNotifOreo();
+                              else showNotifDefault();
+                          }
                               finish();
                           }
                       }
@@ -64,7 +61,36 @@ public class SignUpActivity extends AppCompatActivity {
                       }
                     Toast.makeText(getApplicationContext(),"Password Do Not Match", Toast.LENGTH_SHORT).show();
               }
-              }
+
         });
+    }
+
+    public void showNotifDefault(){
+        NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(SignUpActivity.this)
+                .setSmallIcon(R.drawable.ic_mode_comment_black_24dp)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources()
+                        , R.drawable.ic_mode_comment_black_24dp))
+                .setContentTitle(getResources().getString(R.string.content_title))
+                .setContentText(getResources().getString(R.string.content_text))
+                .setSubText(getResources().getString(R.string.subtext))
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notifManager = NotificationManagerCompat.from(getApplicationContext());
+        notifManager.notify(NOTIFICATION_ID, notifBuilder.build());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void showNotifOreo(){
+        Notification.Builder notifBuilder = new Notification.Builder(SignUpActivity.this, ANDROID_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_mode_comment_black_24dp)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources()
+                        , R.drawable.ic_mode_comment_black_24dp))
+                .setContentTitle(getResources().getString(R.string.content_title))
+                .setContentText(getResources().getString(R.string.content_text))
+                .setSubText(getResources().getString(R.string.subtext))
+                .setAutoCancel(true);
+
+        NotificationUtils utils = new NotificationUtils(SignUpActivity.this);
+        utils.getManager().notify(NOTIFICATION_ID, notifBuilder.build());
     }
 }
